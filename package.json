@@ -1,25 +1,16 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.1.2",
+  "name": "slack-overflow",
+  "version": "0.0.1",
   "description": "A sample Node.js app using Express 4",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "~4.9.x"
+    "express": "*"
   },
   "engines": {
-    "node": "0.10.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
-  },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
+    "iojs": "*"
+  },    
   "license": "MIT"
 }
