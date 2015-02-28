@@ -10,7 +10,7 @@
     "express": "*"
   },
   "engines": {
-    "iojs": "*"
+    "iojs": "1.4.1"
   },    
   "license": "MIT"
 }
