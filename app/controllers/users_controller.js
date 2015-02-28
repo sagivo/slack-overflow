@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Award = mongoose.model('Award');
 
 exports.index = function(req, res) {
   return User.all(function(err, users) {
