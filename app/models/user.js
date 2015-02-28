@@ -6,6 +6,7 @@ var UserSchema = new Schema({
   last_name: { type: String },
   email: { type: String, required: true, index: true, unique: true },
   phone: { type: String },
+  token: { type: String },
   created: { type: Date, "default": Date.now },
   bio: { type: String },
   badges_got: [{ type: Schema.Types.ObjectId, ref: 'Badge' }],

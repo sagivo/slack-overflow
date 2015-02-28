@@ -38,3 +38,11 @@ exports.destroy = function(req, res) {
     return res.json({ status: 'ok' });
   });
 };
+
+exports.give = function(req, res) {
+  User.findById(req.params.id).exec(function(err, user) {
+    if (err) res.send(err);
+    if (!user) { return next(new Error('No user found')); }
+    return res.json({ status: 'ok' });
+  });
+};
