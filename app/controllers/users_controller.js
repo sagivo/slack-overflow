@@ -39,10 +39,18 @@ exports.destroy = function(req, res) {
   });
 };
 
+//to_id, badge_id, tag
 exports.give = function(req, res) {
-  User.findById(req.params.id).exec(function(err, user) {
-    if (err) res.send(err);
-    if (!user) { return next(new Error('No user found')); }
-    return res.json({ status: 'ok' });
-  });
+  Award.create({from: user.id, to: req.params.to, comment: req.body.comment}, function(err) {
+      //add badges and tags to user
+      User.findById(req.body.to_id).exec(function(err, reciver) {
+        if (err) res.send(err);
+        if (!reciver) { return next(new Error('No user found')); }
+        reciver.tags.addToSet(tag);
+        reciver.badges_got.addToSet(badge_id);
+        reciver.badges;
+        //TODO: remove 1 from giver pull
+        return res.json({ status: 'ok' });  
+      });
+    });
 };

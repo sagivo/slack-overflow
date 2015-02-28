@@ -1,16 +1,17 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Award = mongoose.model('Award');
 
 var UserSchema = new Schema({
-  first_name: { type: String, required: true },
-  last_name: { type: String },
+  name: {type: String},
   email: { type: String, required: true, index: true, unique: true },
   phone: { type: String },
   token: { type: String },
   created: { type: Date, "default": Date.now },
-  bio: { type: String },
-  badges_got: [{ type: Schema.Types.ObjectId, ref: 'Badge' }],
-  badges_pull: [{ type: Schema.Types.ObjectId, ref: 'Badge' }]
+  pic: { type: String },
+  tags_got: [{ name: String, count: Number }],
+  badges_pull: [{ type: Schema.Types.ObjectId, ref: 'Badge' }],
+  badges_got: [{ type: Schema.Types.ObjectId, ref: 'Badge' }]
 });
 
 UserSchema.set('autoIndex', false);
@@ -19,8 +20,13 @@ UserSchema.statics = {
   all: function(cb) { return this.find().exec(cb); }
 };
 
-UserSchema.virtual('name').get(function() {
+UserSchema.virtual('name2').get(function() {
   return this.name.first + ' ' + this.name.last;
 });
+
+UserSchema.formage = {
+    singular: 'user',
+    order_by: ['id']    
+};
 
 var User = mongoose.model('User', UserSchema);

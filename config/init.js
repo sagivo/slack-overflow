@@ -4,3 +4,7 @@ var modelsPath =  path.resolve(__dirname,'../app/models');
 
 for (model of fs.readdirSync(modelsPath))
   require( modelsPath + "/" + model );
+
+module.exports = function(app) {
+
+};

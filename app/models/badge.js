@@ -3,8 +3,10 @@ var Schema = mongoose.Schema;
 
 var BadgeSchema = new Schema({
   name: { type: String, required: true },
+  pic: { type: String },
   value: { type: Number, required: true },
-  created: { type: Date, "default": Date.now }  
+  created: { type: Date, "default": Date.now },
+  tags: [{ type: String }]
 });
 
 BadgeSchema.set('autoIndex', false);

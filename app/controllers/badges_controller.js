@@ -9,8 +9,7 @@ exports.index = function(req, res) {
 };
 
 exports.create = function(req, res) {
-  return res.json(req.body);
-  return Badge.create(req.body, function(err) {
+  Badge.create(req.body, function(err) {
     if (err) res.send(err);
     return res.json({ status: 'ok' });
   });
