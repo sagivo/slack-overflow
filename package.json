@@ -7,8 +7,9 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "body-parser": "*",
     "express": "*",
-    "mongodb": "*"
+    "mongoose": "*"
   },
   "engines": {
     "iojs": "1.4.1"
