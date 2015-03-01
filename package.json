@@ -9,7 +9,8 @@
   "dependencies": {
     "body-parser": "*",
     "express": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "gun": "*"
   },
   "engines": {
     "iojs": "1.4.1"

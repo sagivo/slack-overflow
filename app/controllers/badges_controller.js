@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Badge = mongoose.model('Badge');
+var gun = require('gun')({file: 'data.json'});
 
 exports.index = function(req, res) {
   return Badge.all(function(err, Badges) {
@@ -12,6 +13,7 @@ exports.create = function(req, res) {
   Badge.create(req.body, function(err) {
     if (err) res.send(err);
     return res.json({ status: 'ok' });
+    gun.set(req.body).key('badges/' + req.body.name);    
   });
 };
 
