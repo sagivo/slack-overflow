@@ -5,7 +5,7 @@ module.exports = function(app) {
 
   var users = require('../app/controllers/users_controller.js');
   app.get('/users', m.validate, users.index);
-  app.get('/test', users.test);
+  app.get('/sendmail', users.sendmail);
   app.post('/users', users.create);
   app.post('/users/:id/update', users.update);
   app.post('/users/:id/update', users.update);
@@ -18,5 +18,6 @@ module.exports = function(app) {
   app.post('/badges', badges.create);
   app.get('/badges/:id', badges.show);
   app.post('/badges/:id/update', badges.update);
-  app.post('/badges/:id/destroy', m.validate, badges.destroy);
+  app.post('/badges/:id/destroy', m.validate, badges.destroy);  
+
 };
