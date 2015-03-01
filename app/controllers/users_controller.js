@@ -42,7 +42,7 @@ exports.destroy = function(req, res) {
 
 //badge_id, tag
 exports.give = function(req, res) {
-  Award.create({from: req.user.id, to: req.params.to, tag: req.body.tag, comment: req.body.comment}, function(err) {
+  Award.create({from: req.user.id, to: req.params.to, tag: req.body.tag, comment: req.body.comment, badge: badge_id}, function(err) {
       if (err) res.send(err);
       //add badges and tags to user
       User.findById(req.params.to).exec(function(err, reciver) {
@@ -61,4 +61,11 @@ exports.give = function(req, res) {
         return res.json({ status: 'ok' });  
       });
     });
+};
+
+exports.feed = function(req, res) {
+  Award.find().sort({created:-1}).limit(20).populate("from to badge").exec(function(err, awards) {
+    if (err) res.send(err);
+    return res.json({ awards: awards });  
+  });
 };
