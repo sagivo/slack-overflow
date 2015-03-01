@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser'); app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: true }));
 var mongoose = require('mongoose');
-mongoose.connect('');
+mongoose.connect('mongodb://launch:hackathon2015@dogen.mongohq.com:10017/slack-overflow');
 
 require('./config/init')(app);
 require('./config/routes.js')(app)
