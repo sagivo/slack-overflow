@@ -774,7 +774,7 @@ ul.messages li .message {
 	.statbox .number {
 		font-size: 40px;
 		position: absolute;
-		top: 10px;
+		top: 20px;
 		right: 10px;
 	}
 	
@@ -1283,10 +1283,10 @@ ul.dashboard-list a:hover{
 }
 
 ul.dashboard-list.metro li .avatar {
-	height: 50px;
-	width: 50px;
+	height: 42px;
+	width: 42px;
 	float: left;
-	margin: 3px 15px 0px 10px;
+	margin: 0px 15px 0px 10px;
 	border: none;
 	border-radius:50%;
 }
