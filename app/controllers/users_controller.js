@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Award = mongoose.model('Award');
+var gun = require('gun')({file: 'data.json'});
 
 exports.index = function(req, res) {
   return User.all(function(err, users) {
     if (err) res.send(err);
-    return res.json(users);
+    return res.json(users);    
   });
 };
 
@@ -13,6 +14,7 @@ exports.create = function(req, res) {
   return User.create(req.body, function(err) {
     if (err) res.send(err);
     return res.json({ status: 'ok' });
+    gun.set(req.body).key('users/' + req.body.name);
   });
 };
 
