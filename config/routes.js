@@ -6,10 +6,10 @@ module.exports = function(app) {
   var users = require('../app/controllers/users_controller.js');
   app.get('/users', m.validate, users.index);
   app.post('/users', users.create);
-  app.get('/users/:id', users.show);
   app.post('/users/:id/update', users.update);
   app.post('/users/:id/update', users.update);
-  app.post('/users/:to/give', users.destroy);
+  app.post('/users/:to/give', m.validate, users.give);
+  app.get('/users/:id',m.validate, users.show);
 
   var badges = require('../app/controllers/badges_controller.js');
   app.get('/badges', badges.index);

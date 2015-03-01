@@ -7,9 +7,10 @@ var UserSchema = new Schema({
   email: { type: String, required: true, index: true, unique: true },
   phone: { type: String },
   token: { type: String },
+  Job: String,
   created: { type: Date, "default": Date.now },
   pic: { type: String },
-  tags_got: [{ name: String, count: Number }],
+  tags: [{ name: String, count: Number }],
   badges_pull: [{ type: Schema.Types.ObjectId, ref: 'Badge' }],
   badges_got: [{ type: Schema.Types.ObjectId, ref: 'Badge' }]
 });
