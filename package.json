@@ -10,7 +10,10 @@
     "body-parser": "*",
     "express": "*",
     "mongoose": "*",
-    "gun": "*"
+    "gun": "*",
+    "sinch-auth": "*",
+    "sinch-messaging": "*",
+    "fullcontact-api": "*"
   },
   "engines": {
     "iojs": "1.4.1"

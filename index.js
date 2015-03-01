@@ -14,3 +14,10 @@ app.listen(app.get('port'), function() {
   //console.log(`Node app is running at localhost: ${ app.get('port') }`);
   console.log("Node app is running at localhost: " + app.get('port'));
 });
+
+/*
+var sinchAuth = require('sinch-auth');
+var sinchSms = require('sinch-messaging');
+var auth = sinchAuth("e36e567c-392f-4ce1-b8e5-6498b0d671e3", "1Xvegkk7sk2XtpOSbCxtnQ==");
+sinchSms.sendMessage("+14153518826", "Hello world!");
+*/

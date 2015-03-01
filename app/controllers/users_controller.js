@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var Award = mongoose.model('Award');
+
 var gun = require('gun')({file: 'data.json'});
+var fullcontact = require("fullcontact-api")("36f5eb712ea7a6ce");
 
 exports.index = function(req, res) {
   return User.all(function(err, users) {
@@ -14,7 +16,12 @@ exports.create = function(req, res) {
   return User.create(req.body, function(err) {
     if (err) res.send(err);
     return res.json({ status: 'ok' });
-    gun.set(req.body).key('users/' + req.body.name);
+    
+    fullcontact.person.findByEmail(req.body.email, function(err, data) {
+      gun.set(data).key('users/' + req.body.name);
+    });
+
+
   });
 };
 
