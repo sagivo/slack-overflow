@@ -57,11 +57,15 @@ exports.give = function(req, res) {
 
         reciver.badges_got.addToSet(req.body.badge_id);
         reciver.badges;
-        //TODO: remove 1 from giver pull, add tag to badge
+        //TODO: remove 1 from giver pull, add tag to badge        
         return res.json({ status: 'ok' });  
       });
     });
 };
+
+exports.test = function(req, res) {
+  return res.json({ status: 'my test' });  
+}
 
 exports.feed = function(req, res) {
   Award.find().sort({created:-1}).limit(20).populate("from to badge").exec(function(err, awards) {

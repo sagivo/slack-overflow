@@ -5,6 +5,7 @@ module.exports = function(app) {
 
   var users = require('../app/controllers/users_controller.js');
   app.get('/users', m.validate, users.index);
+  app.get('/test', users.test);
   app.post('/users', users.create);
   app.post('/users/:id/update', users.update);
   app.post('/users/:id/update', users.update);
