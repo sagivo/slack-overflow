@@ -5,6 +5,7 @@ var AwardSchema = new Schema({
   created: { type: Date, "default": Date.now }, 
   from: { type: Schema.Types.ObjectId, ref: 'User' },
   to: { type: Schema.Types.ObjectId, ref: 'User' },
+  badge: { type: Schema.Types.ObjectId, ref: 'Badge' },
   tag: String,
   comment: String 
 });

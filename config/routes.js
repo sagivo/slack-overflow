@@ -9,7 +9,8 @@ module.exports = function(app) {
   app.post('/users/:id/update', users.update);
   app.post('/users/:id/update', users.update);
   app.post('/users/:to/give', m.validate, users.give);
-  app.get('/users/:id',m.validate, users.show);
+  app.get('/users/:id', m.validate, users.show);
+  app.get('/feed', m.validate, users.feed);
 
   var badges = require('../app/controllers/badges_controller.js');
   app.get('/badges', badges.index);
