@@ -17,7 +17,7 @@ exports.create = function(req, res) {
 };
 
 exports.show = function(req, res) {
-  User.findById(req.params.id).exec(function(err, user) {
+  User.findById(req.params.id).populate("badges_pull badges_got").exec(function(err, user) {
     if (err) res.send(err);
     if (!user) { return next(new Error('No user found')); }
     return res.json(user);
@@ -54,7 +54,7 @@ exports.give = function(req, res) {
         if (t) t.count++;
         else reciver.tags.push({name:req.body.tag, count:1});
         reciver.save();
-        
+
         reciver.badges_got.addToSet(req.body.badge_id);
         reciver.badges;
         //TODO: remove 1 from giver pull, add tag to badge
